@@ -24,8 +24,6 @@ jobs:
       - name: Run Tests
         run: npm run check
 
-  
-
 
   Deploy:
     runs-on: self-hosted
@@ -33,26 +31,19 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
- 
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:  
-          node-version: 'latest'
- 
+
       - name: Install Dependencies
         run: npm install
 
-      - name: Install pm2 
-        run: npm install -g pm2
- 
+
+
       - name: Deploy to Server
         run: |
           pm2 delete "Server" || true
 
-          pm2 start npm --name Server -- run dev
-
+          pm2 start "npm start" --name="Server"
+          
           pm2 save
-
  
 
 
