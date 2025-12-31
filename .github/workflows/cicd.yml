@@ -51,6 +51,8 @@ jobs:
 
           pm2 start "npm run dev" --name="Server"
 
+          pm2 save
+
  
 
 
