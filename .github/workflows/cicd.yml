@@ -42,8 +42,8 @@ jobs:
           pm2 delete "Server" || true
 
           pm2 start "npm start" --name="Server"
+
           
-          pm2 save
  
 
 
